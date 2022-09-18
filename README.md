@@ -10,7 +10,7 @@ Usage:
 
 ```
 rvm use [3.1.2|jruby-9.3.8.0] && export RUBY_CMD="[ruby|jruby -J--enable-preview]"
-$RUBY_CMD conc_par_via_java_threads.rb <number_of_units_of_work> <concurrency> [R|JP|JV]
+$RUBY_CMD par_conc.rb <number_of_units_of_work> <concurrency> [R|JP|JV]
 ```
 
 R = Ruby threads
