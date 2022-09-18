@@ -45,6 +45,5 @@ End.
 Note the single line printed that lacks the expected newline:
 
 ```
-Acquired semaphore permit to complete unit of work #1.
 Started unit of work #1.Acquired semaphore permit to complete unit of work #2.
 ```
