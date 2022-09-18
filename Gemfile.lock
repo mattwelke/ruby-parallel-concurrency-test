@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concurrent-ruby (1.1.10)
+
+PLATFORMS
+  universal-java-19
+  x86_64-linux
+
+DEPENDENCIES
+  concurrent-ruby (~> 1.1, >= 1.1.10)
+
+BUNDLED WITH
+   2.3.22
