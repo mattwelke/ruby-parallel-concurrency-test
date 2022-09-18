@@ -19,25 +19,30 @@ JP = Java platform threads
 
 JV = Java virtual threads (requires Java 19 to be set as current Java)
 
-Example output with reproduction of behavior described above:
+## Example
+
+If we run:
+
+```bash
+rvm use jruby-9.3.8.0 && export RUBY_CMD="jruby"
+$RUBY_CMD par_conc.rb 3 2 R
+```
+
+We can get the following output:
 
 ```
 Running with:
   Factor: 100000000
-  Workload: 2
+  Workload: 3
   Concurrency: 2
-  Thread type: JV
+  Thread type: R
 
-Acquired semaphore permit to complete unit of work #1.
-Started unit of work #1.Acquired semaphore permit to complete unit of work #2.
+Started unit of work #2.Started unit of work #1.
 
-Started unit of work #2.
-Finished unit of work #1.
-Released semaphore permit after completing unit of work #1.
-Joined unit of work #1.
 Finished unit of work #2.
-Released semaphore permit after completing unit of work #2.
-Joined unit of work #2.
+Started unit of work #3.
+Finished unit of work #1.
+Finished unit of work #3.
 
 End.
 ```
@@ -45,5 +50,5 @@ End.
 Note the single line printed that lacks the expected newline:
 
 ```
-Started unit of work #1.Acquired semaphore permit to complete unit of work #2.
+Started unit of work #2.Started unit of work #1.
 ```

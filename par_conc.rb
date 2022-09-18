@@ -45,9 +45,9 @@ WORKLOAD.times do |i|
   n = i + 1
 
   startable = Proc.new do
-    work(FACTOR, n)
-    semaphore.release
-    puts "Released semaphore permit after completing unit of work ##{n}.\n"
+    semaphore.acquire do
+      work(FACTOR, n)
+    end
   end
 
   startables.push({s: startable, n: n})
@@ -76,15 +76,12 @@ def get_thread(proc)
 end
 
 startables.each do |s|
-  semaphore.acquire
-  puts "Acquired semaphore permit to complete unit of work ##{s[:n]}."
   thread = get_thread(s[:s])
   threads << {t: thread, n: s[:n]}
 end
 
 threads.each do |t|
   t[:t].join
-  puts "Joined unit of work ##{t[:n]}."
 end
 
 puts "\nEnd."
