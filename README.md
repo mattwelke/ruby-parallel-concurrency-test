@@ -2,7 +2,7 @@
 
 An experiment to achieve parallelism in a concurrent workload in Ruby.
 
-Includes a reproduction of behavior I don't yet understand where when a thread is executed in JRuby, and the block of code executed includes a `puts` statement, the string printed does not have a newline.
+Includes a reproduction of behavior I don't yet understand where when a thread is executed in JRuby, and the block of code executed includes a `puts` statement, the string printed sometimes does not have a newline.
 
 Uses CRuby 3.1.2 or JRuby 9.3.8.0 (with Java 19 in order to use Java virtual threads).
 
