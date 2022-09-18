@@ -14,7 +14,9 @@ $RUBY_CMD conc_par_via_java_threads.rb <number_of_units_of_work> <concurrency> [
 ```
 
 R = Ruby threads
+
 JP = Java platform threads
+
 JV = Java virtual threads (requires Java 19 to be set as current Java)
 
 Example output with reproduction of behavior described above:
